@@ -6,13 +6,13 @@ const run = async () => {
   console.log('Subscribing to blocks')
   blocks$.subscribe((block) => {
     console.log('============================================================')
-    console.log(
-      JSON.stringify({
-        actions: block.actions?.length,
-        table_rows: block.table_rows?.length,
-        transactions: block.transactions.length,
-      }),
-    )
+    // console.log(
+    //   JSON.stringify({
+    //     actions: block.actions?.length,
+    //     table_rows: block.table_rows?.length,
+    //     transactions: block.transactions.length,
+    //   }),
+    // )
     console.log(block)
   })
 

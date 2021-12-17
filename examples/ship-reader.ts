@@ -10,18 +10,18 @@ import { eosioHost, fecthAbi, getInfo, eosioApi } from './utils'
 
 const table_rows_whitelist: () => EosioReaderTableRowFilter[] = () => [
   { code: 'eosio.token', table: 'accounts' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'appstates' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'exfees' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'fees' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'accounts' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'gpositions' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'limits' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'positions' },
-  { code: 'bitcashtests', scope: 'bitcashtests', table: 'stat' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'appstates' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'exfees' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'fees' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'accounts' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'gpositions' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'limits' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'positions' },
+  // { code: 'bitcashtests', scope: 'bitcashtests', table: 'stat' },
 ]
 
 const actions_whitelist: () => EosioReaderActionFilter[] = () => [
-  { code: 'bitcashtests', action: '*' },
+  // { code: 'bitcashtests', action: '*' },
   { code: 'eosio.token', action: '*' },
 ]
 
@@ -48,7 +48,7 @@ export const loadReader = async () => {
   const eosioReaderConfig: EosioReaderConfig = {
     ws_url: `ws://${eosioHost}:8080`,
     rpc_url: eosioApi,
-    ds_threads: 6,
+    ds_threads: 1,
     ds_experimental: false,
     delta_whitelist,
     table_rows_whitelist,
@@ -60,10 +60,10 @@ export const loadReader = async () => {
       max_messages_in_flight: 50,
       have_positions: [],
       irreversible_only: false,
-      fetch_block: true,
-      fetch_traces: true,
+      fetch_block: false,
+      fetch_traces: false,
       fetch_deltas: true,
-      fetch_block_header: true,
+      fetch_block_header: false,
     },
     auto_start: true,
   }
